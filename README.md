@@ -6,9 +6,9 @@ resources: 3
 
 # Birthday Calculator
 
-## Objective
-
-Gain familiarity with Ruby's Date class and understand how to manipulate Date objects.
+## Objectives
+* Gain familiarity with Ruby's Date class
+* Understand how to manipulate Date objects
 
 ## Instructions
 * This is a test-driven todo so just run these commands and get those tests to pass:
