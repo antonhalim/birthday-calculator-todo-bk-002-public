@@ -11,6 +11,30 @@ describe BirthdayCalc do
   let(:day_after_tomorrow)  {BirthdayCalc.new("07/16/2000")}
   let(:yesterday)           {BirthdayCalc.new("07/13/2000")}
 
+  describe '#birthday?' do
+    it 'returns true if it is the month and day and year of birthday' do
+      expect(present.birthday?).to eq(true)
+    end
+    it 'returns true if it is the month and day of the birthday' do
+      expect(bd_today.birthday?).to eq(true)
+    end
+    it 'raises error when birthday is in the future' do
+      expect{ future.birthday? }.to raise_error
+    end
+    it 'returns false if it is not the month and day of the birthday' do
+      expect(past.birthday?).to eq(false)
+    end
+    it 'returns false if it is not the month and day of the birthday'  do
+      expect(katie.birthday?).to eq(false)
+    end
+    it 'returns false if it is not the month and day of the birthday' do
+      expect(tomorrow.birthday?).to eq(false)
+    end
+    it 'returns false if it is not the month and day of the birthday' do
+      expect(yesterday.birthday?).to eq(false)
+    end
+  end
+  
   describe '#age' do
     it 'gives age of someone born in the past whose birthday is in the current month but has not yet come to pass' do
       expect(past.age).to eq(24)
@@ -62,28 +86,5 @@ describe BirthdayCalc do
     end
   end
 
-  describe '#birthday?' do
-    it 'returns true if it is the month and day and year of birthday' do
-      expect(present.birthday?).to eq(true)
-    end
-    it 'returns true if it is the month and day of the birthday' do
-      expect(bd_today.birthday?).to eq(true)
-    end
-    it 'raises error when birthday is in the future' do
-      expect{ future.birthday? }.to raise_error
-    end
-    it 'returns false if it is not the month and day of the birthday' do
-      expect(past.birthday?).to eq(false)
-    end
-    it 'returns false if it is not the month and day of the birthday'  do
-      expect(katie.birthday?).to eq(false)
-    end
-    it 'returns false if it is not the month and day of the birthday' do
-      expect(tomorrow.birthday?).to eq(false)
-    end
-    it 'returns false if it is not the month and day of the birthday' do
-      expect(yesterday.birthday?).to eq(false)
-    end
-  end
 
 end
