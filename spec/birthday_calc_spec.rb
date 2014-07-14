@@ -9,6 +9,8 @@ describe BirthdayCalc do
 
   let(:present) {BirthdayCalc.new("07/14/2014")}
   let(:bd_today) {BirthdayCalc.new("07/14/2000")}
+  let(:tomorrow) {BirthdayCalc.new("07/15/2000")}
+  let(:yesterday) {BirthdayCalc.new("07/13/2000")}
 
   describe '#age' do
     it 'gives age of someone born in the past' do
@@ -22,6 +24,12 @@ describe BirthdayCalc do
     end
     it 'gives age of someone born in the current year' do
       expect(bd_today.age).to eq(14)
+    end
+    it 'gives age of someone born in the current month' do
+      expect(tomorrow.age).to eq(13)
+    end
+    it 'gives age of someone born in the current month' do
+      expect(yesterday.age).to eq(14)
     end
     it 'raises error when birthday is in the future' do
       expect{ future.age }.to raise_error(FutureError)
@@ -40,6 +48,12 @@ describe BirthdayCalc do
     end
     it 'gives age of someone born in the current year' do
       expect(bd_today.number_of_days).to eq(0)
+    end
+    it 'gives age of someone born in the current year' do
+      expect(tomorrow.number_of_days).to eq(1)
+    end
+    it 'gives age of someone born in the current year' do
+      expect(yesterday.number_of_days).to eq(364)
     end
     it 'raises error when birthday is in the future' do
       expect{ future.number_of_days }.to raise_error
@@ -61,6 +75,12 @@ describe BirthdayCalc do
     end
     it 'raises error when birthday is in the future' do
       expect{ future.birthday? }.to raise_error
+    end
+    it 'gives age of someone born in the current year' do
+      expect(tomorrow.birthday?).to eq(false)
+    end
+    it 'gives age of someone born in the current year' do
+      expect(yesterday.birthday?).to eq(false)
     end
   end
 
