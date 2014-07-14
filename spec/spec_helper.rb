@@ -4,11 +4,13 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require_relative '../my_file'
+require_relative '../birthday_calc.rb'
+require "timecop"
 
 RSpec.configure do |config|
-  # Use color in STDOUT
-  config.color_enabled = true
+
+  july_18th_2014 = Time.local(2014, 7, 14)
+  Timecop.freeze(july_18th_2014)
 
   # Use color not only in STDOUT but also in pagers and files
   config.tty = true
