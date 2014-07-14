@@ -9,8 +9,8 @@ require "timecop"
 
 RSpec.configure do |config|
 
-  july_18th_2014 = Time.local(2014, 7, 14)
-  Timecop.freeze(july_18th_2014)
+  july_14th_2014 = Time.local(2014, 7, 14)
+  Timecop.freeze(july_14th_2014)
 
   # Use color not only in STDOUT but also in pagers and files
   config.tty = true
