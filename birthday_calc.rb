@@ -21,9 +21,23 @@ class BirthdayCalc
     end
   end
 
+  def calculate_age
+    (today - birthday).to_i / 365
+  end
+
   def age
     if born_yet?
-      (today - birthday).to_i / 365
+      if birthday.month < today.month
+        calculate_age
+      elsif birthday.month > today.month
+        calculate_age - 1
+      elsif birthday.month == today.month
+        if birthday.day <= today.day
+          calculate_age
+        else  # birthday.day > today.day
+          calculate_age - 1
+        end
+      end
     end
   end
 
