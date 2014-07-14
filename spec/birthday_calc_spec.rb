@@ -8,6 +8,7 @@ describe BirthdayCalc do
   let(:future) {BirthdayCalc.new("12/28/2090")}
 
   let(:present) {BirthdayCalc.new("07/14/2014")}
+  let(:bd_today) {BirthdayCalc.new("07/14/2000")}
 
   describe '#age' do
     it 'gives age of someone born in the past' do
@@ -18,6 +19,9 @@ describe BirthdayCalc do
     end
     it 'gives age of someone born in the current year' do
       expect(present.age).to eq(0)
+    end
+    it 'gives age of someone born in the current year' do
+      expect(bd_today.age).to eq(14)
     end
     it 'raises error when birthday is in the future' do
       expect{ future.age }.to raise_error(FutureError)
@@ -34,8 +38,29 @@ describe BirthdayCalc do
     it 'gives number of days until a given date' do
       expect(present.number_of_days).to eq(0)
     end
+    it 'gives age of someone born in the current year' do
+      expect(bd_today.number_of_days).to eq(0)
+    end
     it 'raises error when birthday is in the future' do
       expect{ future.number_of_days }.to raise_error
+    end
+  end
+
+  describe '#birthday?' do
+    it 'gives number of days until a given date' do
+      expect(past.birthday?).to eq(false)
+    end
+    it 'gives number of days until a given date next year' do
+      expect(katie.birthday?).to eq(false)
+    end
+    it 'gives number of days until a given date' do
+      expect(present.birthday?).to eq(true)
+    end
+    it 'gives age of someone born in the current year' do
+      expect(bd_today.birthday?).to eq(true)
+    end
+    it 'raises error when birthday is in the future' do
+      expect{ future.birthday? }.to raise_error
     end
   end
 

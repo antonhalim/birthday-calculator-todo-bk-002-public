@@ -1,22 +1,10 @@
 ---
-tags: template, procedural
-language: ruby, rb
-resources: 0
+tags: todo, date, time, datetime
+language: ruby
+resources: 2
 ---
 
-# Basic Procedural App Template
-
-## Structure
-
-```bash
-procedural-ruby-template/
-├── README.md
-├── .rspec
-├── my_file.rb
-└── spec
-    └── spec_helper.rb
-    └── my_file_spec.rb
-```
+# Birthday Calculator
 
 ## Usage
 

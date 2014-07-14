@@ -47,6 +47,14 @@ class BirthdayCalc
     end
   end
 
+  def birthday?
+    if number_of_days == 0
+      true
+    else
+      false
+    end
+  end
+
 end
 
 class FutureError < StandardError
